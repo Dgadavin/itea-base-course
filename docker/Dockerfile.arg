@@ -1,0 +1,15 @@
+FROM alpine
+
+RUN apk update --no-cache && apk add git
+
+ARG env=dev
+
+COPY settings/$env.yaml /data/$env.yaml
+
+ENV ENV=$env
+
+WORKDIR /data
+
+COPY . /data
+
+CMD echo $ENV

@@ -1,1 +1,1 @@
-# itea-base-course
+# Itea base DevOps course
