@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'eCoursework: EC2 utility server'
+Description: 'itea: EC2 utility server'
 Parameters:
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
@@ -17,7 +17,7 @@ Parameters:
     ConstraintDescription: must be a valid EC2 instance type.
   VPCId:
     Description: VPC id where resources will be created
-    Type: String
+    Type: AWS::EC2::VPC::Id
   SSHLocation:
     Description: The IP address range that can be used to SSH to the EC2 instances
     Type: String
@@ -40,6 +40,16 @@ Resources:
       Tags:
         - Key: "Name"
           Value: "itea-test-server"
+  EC2Instance01:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      SecurityGroupIds: [!Ref 'InstanceSecurityGroup']
+      KeyName: !Ref 'KeyName'
+      ImageId: !Ref 'LatestAmiId'
+      Tags:
+        - Key: "Name"
+          Value: "itea-test-server"
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -49,6 +59,10 @@ Resources:
       - IpProtocol: tcp
         FromPort: 22
         ToPort: 22
+        CidrIp: !Ref 'SSHLocation'
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
         CidrIp: !Ref 'SSHLocation'
 Outputs:
   InstanceId:

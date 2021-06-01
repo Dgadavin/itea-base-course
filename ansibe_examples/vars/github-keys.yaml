@@ -1,0 +1,8 @@
+---
+users:
+  - name: msotnikov
+    gecos: Maksym Sotnikov
+    github: dgadavin
+  - name: dvetriak
+    gecos: Denys Vetriak
+    github: denysvetriak
