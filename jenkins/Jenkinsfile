@@ -2,7 +2,7 @@ node {
     timeout(20){
     deleteDir() // Clean the workspace
     stage('Checkout') {
-        git branch: 'master',
+        git branch: 'main',
             url: 'https://github.com/Dgadavin/itea-base-course.git'
     }
     stage('Print Hello') {

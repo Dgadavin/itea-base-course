@@ -14,7 +14,7 @@ pipelineJob("test-pipeline") {
    			scm {
             	git {
                   remote {
-                        github("dgadavin/itea-base-course", 'https')
+                        github("Dgadavin/itea-base-course", 'https')
                         branch("main")
                   }
               }
