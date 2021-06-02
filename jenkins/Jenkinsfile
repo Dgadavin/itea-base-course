@@ -1,7 +1,6 @@
 node {
     timeout(20){
     deleteDir() // Clean the workspace
-    notifyBuild()
     stage('Checkout') {
         git branch: 'master',
             url: 'https://github.com/Dgadavin/itea-base-course.git'
