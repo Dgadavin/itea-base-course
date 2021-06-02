@@ -6,7 +6,8 @@ def services = [
   "new-backend",
   "one-more-backend",
   "and-one-more-backend",
-  "another-job"
+  "another-job",
+  "test-1"
 ]
 def credentialsToUse = "github-deploy"
 def environment = System.getenv('ENV')
