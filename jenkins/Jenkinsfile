@@ -1,0 +1,16 @@
+node {
+    timeout(20){
+    deleteDir() // Clean the workspace
+    notifyBuild()
+    stage('Checkout') {
+        git branch: 'master',
+            url: 'https://github.com/Dgadavin/itea-base-course.git'
+    }
+    stage('Print Hello') {
+        sh 'echo Hello world'
+    }
+    stage('Run the tests') {
+        sh 'echo "Hello. here is tests"'
+    }
+}
+}
